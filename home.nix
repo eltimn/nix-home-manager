@@ -36,7 +36,6 @@
       notify-osd
       parcellite
       sshfs
-      terminator
       # trash-cli
       tree
       vim
