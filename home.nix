@@ -1,3 +1,7 @@
+# https://nix-community.github.io/home-manager/options.xhtml
+# https://github.com/Yumasi/nixos-home/tree/main
+# https://github.com/chrisportela/dotfiles
+# https://www.chrisportela.com/posts/home-manager-flake/
 { config, pkgs, username, ... }: {
   home = {
     # Home Manager needs a bit of information about you and the
@@ -48,10 +52,9 @@
     file.".config/Code/User/settings.json".source =
       ./files/.config/Code/User/settings.json;
     file.".config/git/config".source = ./files/.config/git/config;
+    file.".config/terminator/config".source = ./files/.config/terminator/config;
     file.".oh-my-zsh-custom".source = ./files/.oh-my-zsh-custom;
-    file.".oh-my-zsh-custom".recursive = true;
     file."bin".source = ./files/bin;
-    # file."bin".recursive = true;
     file.".ackrc".source = ./files/.ackrc;
     file.".ansible.cfg".source = ./files/.ansible.cfg;
     file.".gitignore".source = ./files/.gitignore;
@@ -72,7 +75,7 @@
 
       oh-my-zsh = {
         enable = true;
-        theme = "philips";
+        theme = "philips"; # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
         custom = "$HOME/.oh-my-zsh-custom";
         plugins = [ "copyfile" "copypath" "colorize" ];
       };
