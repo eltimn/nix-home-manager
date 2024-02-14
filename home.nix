@@ -24,7 +24,9 @@
       # ack-grep
       curl
       # dnsutils
+      ffmpeg
       git
+      gnome.gnome-tweaks
       htop
       # libnss3-tools
       libnotify
@@ -32,7 +34,9 @@
       # net-tools
       nixfmt
       notify-osd
+      parcellite
       sshfs
+      terminator
       # trash-cli
       tree
       vim
@@ -65,6 +69,14 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
+
+    # tmux
+    tmux = {
+      enable = true;
+      shell = "${pkgs.zsh}/bin/zsh";
+      terminal = "screen-256color";
+      plugins = with pkgs; [ tmuxPlugins.sensible tmuxPlugins.cpu ];
+    };
 
     # zsh
     zsh = {

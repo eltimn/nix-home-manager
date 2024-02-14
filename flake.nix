@@ -1,4 +1,5 @@
 {
+  # https://nixos.wiki/wiki/Flakes
   description = "Home Manager configuration of nelly";
 
   inputs = {
