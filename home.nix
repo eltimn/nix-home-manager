@@ -64,24 +64,22 @@
     file.".abcde.conf".source = ./files/.abcde.conf;
   };
 
+  # Packages that are installed as programs also allow for configuration.
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
-    # direnv
     direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 
-    # fzf
     fzf = {
       enable = true;
       enableZshIntegration = true;
     };
 
-    # tmux
     tmux = {
       enable = true;
       shell = "${pkgs.zsh}/bin/zsh";
@@ -91,13 +89,11 @@
       tmuxinator.enable = true;
     };
 
-    # zoxide
     zoxide = {
       enable = true;
       enableZshIntegration = true;
     };
 
-    # zsh
     zsh = {
       enable = true;
       enableCompletion = true;
