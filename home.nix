@@ -22,8 +22,8 @@
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       # ack-grep
-      curl
       # dnsutils
+      enpass
       ffmpeg
       git
       gnome.gnome-tweaks
@@ -37,9 +37,8 @@
       parcellite
       sshfs
       # trash-cli
-      tree
-      vim
       xclip
+      yubikey-manager
     ];
 
     # List of extra paths to include in the user profile.
@@ -48,7 +47,7 @@
     # List of environment variables.
     sessionVariables = {
       EDITOR = "/usr/bin/code --new-window --wait";
-      JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64";
+      # JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64";
     };
 
     # List of files to be symlinked into the user home directory.
@@ -69,12 +68,33 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
+    # direnv
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    # fzf
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # tmux
     tmux = {
       enable = true;
       shell = "${pkgs.zsh}/bin/zsh";
+      shortcut = "a";
       terminal = "screen-256color";
       plugins = with pkgs; [ tmuxPlugins.sensible tmuxPlugins.cpu ];
+      tmuxinator.enable = true;
+    };
+
+    # zoxide
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     # zsh
@@ -90,13 +110,6 @@
         custom = "$HOME/.oh-my-zsh-custom";
         plugins = [ "copyfile" "copypath" "colorize" ];
       };
-    };
-
-    # direnv
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
     };
   };
 
