@@ -35,6 +35,7 @@
       nixfmt
       notify-osd
       parcellite
+      ripgrep
       sshfs
       tmux
       tmuxinator
@@ -44,7 +45,7 @@
     ];
 
     # List of extra paths to include in the user profile.
-    sessionPath = [ "$HOME/.pulumi/bin" ];
+    sessionPath = [ "$HOME/.pulumi/bin" "$HOME/.turso" ];
 
     # List of environment variables.
     sessionVariables = {
@@ -70,6 +71,14 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
+
+    bat = {
+      enable = true;
+      config = {
+        pager = "less -FR";
+        theme = "ansi";
+      };
+    };
 
     direnv = {
       enable = true;
