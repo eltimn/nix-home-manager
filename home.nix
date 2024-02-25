@@ -26,16 +26,18 @@
       enpass
       ffmpeg
       git
-      gnome.gnome-tweaks
       htop
       # libnss3-tools
       libnotify
       neovim
+      # nerdfonts
       # net-tools
       nixfmt
       notify-osd
       parcellite
       sshfs
+      tmux
+      tmuxinator
       # trash-cli
       xclip
       yubikey-manager
@@ -80,14 +82,20 @@
       enableZshIntegration = true;
     };
 
-    tmux = {
-      enable = true;
-      shell = "${pkgs.zsh}/bin/zsh";
-      shortcut = "a";
-      terminal = "screen-256color";
-      plugins = with pkgs; [ tmuxPlugins.sensible tmuxPlugins.cpu ];
-      tmuxinator.enable = true;
-    };
+    # tmux = {
+    #   enable = true;
+    #   shell = "${pkgs.zsh}/bin/zsh";
+    #   shortcut = "a";
+    #   terminal = "screen-256color";
+    #   plugins = with pkgs; [ tmuxPlugins.sensible tmuxPlugins.cpu ];
+    #   extraConfig = ''
+    #     set status-utf8 on
+    #     set utf8 on
+    #     set -g status-bg black
+    #     set -g status-fg white"
+    #   '';
+    #   tmuxinator.enable = true;
+    # };
 
     zoxide = {
       enable = true;
